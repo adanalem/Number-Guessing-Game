@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <style>
+    /* Glowing border + shadow animation */
+    @keyframes glowBox {
+      0%   { border-color: #ff0080; box-shadow: 0 0 30px #ff0080; }
+      25%  { border-color: #7928ca; box-shadow: 0 0 30px #7928ca; }
+      50%  { border-color: #00f5d4; box-shadow: 0 0 30px #00f5d4; }
+      60%  { border-color:  #fbbf24 ; box-shadow: 0 0 30px #fbbf24; }
+       75%  { border-color: #ff6ec7; box-shadow: 0 0 30px #ff6ec7; }
+
+      100% { border-color: #ff0080; box-shadow: 0 0 30px #ff0080; }
+    }
+
+    .animate-glowBox {
+      animation: glowBox 4s linear infinite;
+    }
+  </style>
+
+  <title>Number Guessing Game</title>
+</head>
+
+<body class="flex items-center justify-center h-screen bg-gradient-to-br from-[#05010a] via-[#12061f] to-[#020108]">
+
+  <!-- GLOWING & GLOSSY BOX -->
+  <div class="relative w-[480px] p-20 text-center rounded-[32px] bg-white/10 backdrop-blur-3xl border-4 border-cyan-400/40 shadow-[0_0_80px_#22d3ee] animate-glowBox overflow-hidden">
+
+    <!-- Glossy shine overlay -->
+    <div class="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent opacity-20 pointer-events-none"></div>
+
+    <h1 class="relative text-white text-2xl font-bold mb-8 drop-shadow-2xl">
+      Guess A Number
+    </h1>
+
+    <input
+      type="number"
+      id="num"
+      placeholder="Enter your number"
+      class="relative w-full p-4 mb-7 rounded-xl text-center bg-white/5 text-white outline-none border border-cyan-300/40 placeholder:text-gray-300 focus:border-pink-500 shadow-inner transition duration-300"
+    >
+
+    <div class="relative flex gap-6">
+      <button onclick="checknumber()"
+        class="w-[200px] py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-[#ff0080] to-[#7928ca] shadow-[0_0_35px_#ff0080] hover:shadow-[0_0_55px_#ff0080] hover:scale-105 transition duration-300">
+        Check
+      </button>
+
+      <button onclick="clearinput()"
+        class="w-[200px] py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-[#00f5d4] to-[#0066ff] shadow-[0_0_35px_#00f5d4] hover:shadow-[0_0_55px_#00f5d4] hover:scale-105 transition duration-300">
+        Clear
+      </button>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
